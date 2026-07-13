@@ -68,7 +68,7 @@ function CodeArtifact(): React.ReactElement {
           <span className="block">
             <span className="text-foreground/30">{"  role"}</span>
             <span className="text-foreground/20">{": "}</span>
-            <span className="text-amber-400/60">{'"Junior FE Engineer"'}</span>
+            <span className="text-amber-400/60">{'"Junior FS Engineer"'}</span>
             <span className="text-foreground/20">,</span>
           </span>
           <span className="block">
