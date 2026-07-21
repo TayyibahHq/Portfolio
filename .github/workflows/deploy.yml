@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Double-check this folder path! (Common Vite/React builds output to './dist')
-          path: './dist'
+          path: './dist/public'
 
   # Job 2: Deploy the uploaded artifact to Pages
   deploy:
