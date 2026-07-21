@@ -250,7 +250,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
 // Contact / Social
 // ─────────────────────────────────────────────
 
-export const CONTACT_EMAIL = "tayyibah.haq@snhu.edu";
+export const CONTACT_EMAIL = "";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { platform: "github",   url: "https://github.com/TayyibahHq",   label: "GitHub"   },
