@@ -27,8 +27,7 @@ jobs:
       # Upgrade to v4 for pnpm v10+ support
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
+
 
       # Uses built-in node/pnpm caching directly
       - name: Setup Node.js
