@@ -6,12 +6,16 @@
     <title>Redirecting...</title>
     <script>
       // SPA routing: redirect all 404s to index.html
+      const basePath = '/Portfolio';
       const path = window.location.pathname;
-      if (!path.endsWith('/')) {
-        sessionStorage.redirect = path;
-        window.location.href = '/';
+      
+      // Only redirect if not already at the base
+      if (path !== basePath && path !== basePath + '/') {
+        sessionStorage.redirect = path.replace(basePath, '');
+        window.location.href = basePath + '/';
       }
     </script>
   </head>
   <body></body>
 </html>
+
