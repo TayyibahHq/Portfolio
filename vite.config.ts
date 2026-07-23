@@ -237,7 +237,7 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 export default defineConfig({
   appType: 'spa',
   plugins,
-  base: './', 
+  base: '/Portfolio/', 
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

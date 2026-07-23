@@ -4,9 +4,10 @@ import "./index.css";
 
 // Restore path after 404.html redirect (GitHub Pages SPA routing)
 if (sessionStorage.redirect) {
-  const path = sessionStorage.redirect;
+  const redirectPath = sessionStorage.redirect;
   delete sessionStorage.redirect;
-  window.history.replaceState(null, "", path);
+  // Use replaceState to restore the original URL without reloading
+  window.history.replaceState(null, "", '/Portfolio' + redirectPath);
 }
 
 createRoot(document.getElementById("root")!).render(<App />);
