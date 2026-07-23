@@ -156,17 +156,21 @@ function vitePluginSpaFallback(): Plugin {
     configureServer(server: ViteDevServer) {
       return () => {
         server.middlewares.use((req, res, next) => {
-          // Skip API routes and static files
-          if (req.url?.startsWith("/__") || req.url?.startsWith("/node_modules")) {
+          if (!req.url) return next();
+
+          const url = req.url.split("?")[0];
+          
+          // Skip API routes, data URIs, and __manus__ routes
+          if (url.startsWith("/__") || url.startsWith("/node_modules")) {
             return next();
           }
 
           // Skip requests with file extensions (assets, images, etc.)
-          if (req.url && /\.[a-z0-9]+$/i.test(req.url)) {
+          if (/\.[a-z0-9]+$/i.test(url) && !url.endsWith(".html")) {
             return next();
           }
 
-          // Serve index.html for all other routes (SPA routing)
+          // For all other routes, rewrite to index.html
           req.url = "/index.html";
           next();
         });
@@ -231,6 +235,7 @@ function vitePluginStorageProxy(): Plugin {
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginSpaFallback(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  appType: 'spa',
   plugins,
   base: './', 
   resolve: {
