@@ -150,6 +150,31 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
+function vitePluginSpaFallback(): Plugin {
+  return {
+    name: "spa-fallback",
+    configureServer(server: ViteDevServer) {
+      return () => {
+        server.middlewares.use((req, res, next) => {
+          // Skip API routes and static files
+          if (req.url?.startsWith("/__") || req.url?.startsWith("/node_modules")) {
+            return next();
+          }
+
+          // Skip requests with file extensions (assets, images, etc.)
+          if (req.url && /\.[a-z0-9]+$/i.test(req.url)) {
+            return next();
+          }
+
+          // Serve index.html for all other routes (SPA routing)
+          req.url = "/index.html";
+          next();
+        });
+      };
+    },
+  };
+}
+
 function vitePluginStorageProxy(): Plugin {
   return {
     name: "manus-storage-proxy",
@@ -203,7 +228,7 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginSpaFallback(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
   plugins,
