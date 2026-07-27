@@ -25,28 +25,32 @@
  * - NavigationBar is rendered outside <Router> so it persists across routes
  */
 
-import { Route, Switch }       from "wouter";
-import { Toaster }             from "@/components/ui/sonner";
-import { TooltipProvider }     from "@/components/ui/tooltip";
-import ErrorBoundary           from "@/components/ErrorBoundary";
-import { ThemeProvider }       from "@/contexts/ThemeContext";
-import { NavigationBar }       from "@/components/nav/NavigationBar";
-import { NAV_LINKS }           from "@/constants/portfolio";
-import Home                    from "@/pages/Home";
-import NotFound                from "@/pages/NotFound";
+import { Route, Router, Switch } from "wouter";
+import { Toaster }               from "@/components/ui/sonner";
+import { TooltipProvider }       from "@/components/ui/tooltip";
+import ErrorBoundary             from "@/components/ErrorBoundary";
+import { ThemeProvider }         from "@/contexts/ThemeContext";
+import { NavigationBar }         from "@/components/nav/NavigationBar";
+import { NAV_LINKS }             from "@/constants/portfolio";
+import Home                      from "@/pages/Home";
+import NotFound                  from "@/pages/NotFound";
 
 // ─────────────────────────────────────────────
 // Router
 // ─────────────────────────────────────────────
 
-function Router(): React.ReactElement {
+function AppRouter(): React.ReactElement {
+  const basePath = import.meta.env.BASE_URL || "/";
+
   return (
-    <Switch>
-      <Route path="/"    component={Home}     />
-      <Route path="/404" component={NotFound} />
-      {/* Catch-all fallback */}
-      <Route component={NotFound} />
-    </Switch>
+    <Router base={basePath}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/404" component={NotFound} />
+        {/* Catch-all fallback */}
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
@@ -88,7 +92,7 @@ function App(): React.ReactElement {
           <NavigationBar links={NAV_LINKS} />
 
           {/* Page content */}
-          <Router />
+          <AppRouter />
 
           {/* Global toast notifications */}
           <Toaster position="bottom-right" />
