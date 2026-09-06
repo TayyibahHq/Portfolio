@@ -103,7 +103,7 @@ export const PROJECTS: Project[] = [
   {
     id:          "proj-4",
     title:       "Movier Reccomendation Website",
-    description: "A developer productivity CLI tool that scaffolds opinionated project templates, manages environment secrets, and integrates with GitHub Actions for one-command deployments.",
+    description: "Engineered a full-stack web application using React, TypeScript, and Node.js that integrates multi-endpoint RESTful APIs to dynamically fetch, filter, and render extensive film datasets for personalized, real-time movie recommendations.",
     tags:        ["Node.js", "TypeScript", "React", "GitHub", "APIs"],
     liveUrl:     "https://tayyibahhq.github.io/Movie_Recs.web/",
     repoUrl:     "https://github.com/TayyibahHq/Movie_Recs.web",
@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
     title:       "Budgeting App",
     description: "A Kotlin-based budget tracking application featuring multi-language support, empowering users to manage finances effortlessly. Implemented features including expense tracking, income management, and budget planning for streamlined financial oversight. It aims. to optimize user experience and organizational efficiency",
     tags:        ["Kotlin", "Firebase"],
-    liveUrl:     "https://example.com",
+    liveUrl:     "https://youtu.be/L13ObKhm_QQ",
     repoUrl:     "https://github.com/TayyibahHq/BudgetingApp",
     featured:    false,
     category:    "other",
@@ -123,14 +123,14 @@ export const PROJECTS: Project[] = [
   {
     id:          "proj-6",
     title:       "Career Services Portal",
-    description: "A real-time performance monitoring dashboard for web applications. Tracks Core Web Vitals, JavaScript execution time, and network waterfall charts.",
+    description: "Designed and developed an interactive, front-end web application using HTML5, CSS3, and JavaScript to deliver a responsive career hub featuring dynamic job search filters, resource libraries, and user-friendly career tracking tools..",
     tags:        ["HTML5", "CSS", "JavaScript", "Bootstrap"],
     liveUrl:     "https://tayyibahhq.github.io/CareerServicePortal/index.html",
     repoUrl:     "https://github.com/TayyibahHq/CareerServicePortal",
     featured:    false,
     category:    "frontend",
   },
-    {
+   /* {
     id:          "proj-2",
     title:       "Galaxy Bakery E-commerce Website",
     description: "Created a multi-page ASP.NET web app in C# and HTML for product browsing, detailed viewing, user sign-up/login, and cart functionality. Developed foundational web development skills, mastering ASP.NET framework and C# programming.",
@@ -143,11 +143,11 @@ export const PROJECTS: Project[] = [
       challenge: "Implementing real-time collaboration at scale with concurrent edits from 50+ users without conflicts.",
       solution: "Implemented operational-transform conflict resolution on the server and optimised canvas rendering with requestAnimationFrame.",
     },
-  },
+  },*/
   {
     id:          "proj-3",
     title:       "Sky Cinema Front-End Interface",
-    description: "An enterprise-grade analytics platform with server-side rendering, role-based access control, and a custom charting layer built on D3.js. Handles 50M+ data points with virtualised rendering.",
+    description: "An interactive, front-end movie ticketing site using HTML5, CSS3, and JavaScript, featuring a custom seat selection interface, dynamic real-time price calculation, and responsive login/signup modal forms.",
     tags:        ["HTML5", "CSS", "JavaScript", "jQuery", "Git"],
     liveUrl:     "https://tayyibahhq.github.io/Sky-Cinema/",
     repoUrl:     "https://github.com/TayyibahHq/Sky-Cinema",
@@ -199,9 +199,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
     startDate:    "2026-01",
     endDate:      "Present",
     highlights: [
-      "Enhanced a legacy SPA by rebuilding them as a responsive, dynamic user interfaces using a modern tech stack centered on React and JavaScript..",
-      "Performed comprehensive website maintenance, including debugging, code refactoring, and performance optimization to improve load times, enhance stability, and ensure cross-browser compatibility.",
-      "Mentored a junior engineer through code structure and best practices.",
+      "	Executed comprehensive code refactoring, proactive debugging, and website maintenance, reducing load times by 30%, enhancing cross-browser compatibility, and ensuring robust system stability.",
+      "	Conducted rigorous security audits, proactively identified system vulnerabilities, and implemented critical patches to safeguard user data, reducing vulnerabilities by 50%.",
+      "	Facilitated cross-functional alignment meetings to streamline development workflows, while mentoring a junior engineer on clean code structure and industry best practices to accelerate team growth.",
     ],
     technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "GitHub"],
   },
@@ -250,10 +250,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
 // Contact / Social
 // ─────────────────────────────────────────────
 
-export const CONTACT_EMAIL = "";
+export const CONTACT_EMAIL = "Tayyibahhaq@hotmail.com";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { platform: "github",   url: "https://github.com/TayyibahHq",   label: "GitHub"   },
-  { platform: "linkedin", url: "https://linkedin.com", label: "LinkedIn" },
-  { platform: "twitter",  url: "https://twitter.com",  label: "Twitter"  },
+  { platform: "linkedin", url: "www.linkedin.com/in/tayyibah-haq-219821242", label: "LinkedIn" },
 ];
