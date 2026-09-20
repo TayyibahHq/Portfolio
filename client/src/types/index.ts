@@ -204,8 +204,8 @@ export interface BeforeAfterShowcase {
   id: string;
   title: string;
   description?: string;
-  beforeImage: string;
-  afterImage: string;
+  beforeVideo: string;
+  afterVideo: string;
   beforeAlt: string;
   afterAlt: string;
   beforeLabel?: string;

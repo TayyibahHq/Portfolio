@@ -1,6 +1,6 @@
 /**
  * @file components/BeforeAfterSlider.tsx
- * @description Interactive before/after image comparison slider with pointer events.
+ * @description Interactive before/after video comparison slider with pointer events.
  *
  * Features:
  * - Pointer event tracking (mouse + touch) with clip-path animation
@@ -23,13 +23,13 @@ import { cn } from "@/lib/utils";
 // ─────────────────────────────────────────────
 
 export interface BeforeAfterSliderProps {
-  /** URL or path to the "before" image */
-  beforeImage: string;
-  /** URL or path to the "after" image */
-  afterImage: string;
-  /** Alt text for the before image */
+  /** URL or path to the "before" video */
+  beforeVideo: string;
+  /** URL or path to the "after" video */
+  afterVideo: string;
+  /** Accessible label for the before video */
   beforeAlt: string;
-  /** Alt text for the after image */
+  /** Accessible label for the after video */
   afterAlt: string;
   /** Optional: Label shown above the before image */
   beforeLabel?: string;
@@ -50,8 +50,8 @@ export interface BeforeAfterSliderProps {
 // ─────────────────────────────────────────────
 
 export function BeforeAfterSlider({
-  beforeImage,
-  afterImage,
+  beforeVideo,
+  afterVideo,
   beforeAlt,
   afterAlt,
   beforeLabel,
@@ -65,6 +65,29 @@ export function BeforeAfterSlider({
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
+  const beforeVideoRef = useRef<HTMLVideoElement>(null);
+  const afterVideoRef = useRef<HTMLVideoElement>(null);
+
+  const syncPlayback = useCallback(() => {
+    const beforeElement = beforeVideoRef.current;
+    const afterElement = afterVideoRef.current;
+    if (!beforeElement || !afterElement) return;
+
+    const activeVideo = position >= 50 ? afterElement : beforeElement;
+    const inactiveVideo = activeVideo === afterElement ? beforeElement : afterElement;
+
+    if (Number.isFinite(inactiveVideo.currentTime)) {
+      activeVideo.currentTime = inactiveVideo.currentTime;
+    }
+    inactiveVideo.pause();
+    void activeVideo.play().catch(() => {
+      // Playback can be rejected until the browser has loaded the video.
+    });
+  }, [position]);
+
+  useEffect(() => {
+    syncPlayback();
+  }, [syncPlayback]);
 
   // ─────────────────────────────────────────────
   // Pointer event handlers
@@ -188,7 +211,7 @@ export function BeforeAfterSlider({
       onPointerLeave={handlePointerUp}
       onClick={handleContainerClick}
       role="region"
-      aria-label="Before and after image comparison"
+      aria-label="Before and after video comparison"
       aria-valuenow={Math.round(position)}
       aria-valuemin={0}
       aria-valuemax={100}
@@ -199,26 +222,36 @@ export function BeforeAfterSlider({
         containerClassName,
       )}
     >
-      {/* Before image (background) */}
-      <img
-        src={beforeImage}
-        alt={beforeAlt}
+      {/* Before video (background) */}
+      <video
+        ref={beforeVideoRef}
+        src={beforeVideo}
+        aria-label={beforeAlt}
         className="absolute inset-0 h-full w-full object-cover"
-        draggable="false"
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onLoadedMetadata={syncPlayback}
       />
 
-      {/* After image (clipped) */}
+      {/* After video (clipped) */}
       <div
         className="absolute inset-0 h-full w-full overflow-hidden"
         style={{
           clipPath: `inset(0 0 0 ${100 - position}%)`,
         }}
       >
-        <img
-          src={afterImage}
-          alt={afterAlt}
+        <video
+          ref={afterVideoRef}
+          src={afterVideo}
+          aria-label={afterAlt}
           className="h-full w-full object-cover"
-          draggable="false"
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onLoadedMetadata={syncPlayback}
         />
       </div>
 
@@ -245,7 +278,7 @@ export function BeforeAfterSlider({
         ref={handleRef}
         role="slider"
         tabIndex={0}
-        aria-label="Image comparison slider"
+        aria-label="Video comparison slider"
         aria-valuenow={Math.round(position)}
         aria-valuemin={0}
         aria-valuemax={100}

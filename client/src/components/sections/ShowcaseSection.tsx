@@ -1,6 +1,6 @@
 /**
  * @file components/sections/ShowcaseSection.tsx
- * @description Showcase section with before/after image comparisons.
+ * @description Showcase section with before/after video comparisons.
  *
  * Design: Dark Craft / Obsidian Studio
  * - Uses BeforeAfterSlider for interactive comparisons
@@ -43,8 +43,8 @@ export function ShowcaseSection({
 
             {/* Slider */}
             <BeforeAfterSlider
-              beforeImage={showcase.beforeImage}
-              afterImage={showcase.afterImage}
+              beforeVideo={showcase.beforeVideo}
+              afterVideo={showcase.afterVideo}
               beforeAlt={showcase.beforeAlt}
               afterAlt={showcase.afterAlt}
               beforeLabel={showcase.beforeLabel}

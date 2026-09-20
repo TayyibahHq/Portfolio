@@ -1,6 +1,6 @@
 /**
  * @file components/BeforeAfterSlider.demo.tsx
- * @description Example usage and demo of the BeforeAfterSlider component.
+ * @description Example usage and demo of the video comparison slider.
  * Shows multiple variations and aspect ratios.
  */
 
@@ -30,8 +30,8 @@ export function BeforeAfterSliderDemo(): React.ReactElement {
             </p>
           </div>
           <BeforeAfterSlider
-            beforeImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=675&fit=crop"
-            afterImage="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=675&fit=crop"
+            beforeVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            afterVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
             beforeAlt="Old website design"
             afterAlt="New website design"
             beforeLabel="Before"
@@ -53,8 +53,8 @@ export function BeforeAfterSliderDemo(): React.ReactElement {
           </div>
           <div className="max-w-sm">
             <BeforeAfterSlider
-              beforeImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop"
-              afterImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop"
+              beforeVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+              afterVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
               beforeAlt="Old mobile app"
               afterAlt="New mobile app"
               beforeLabel="v1.0"
@@ -76,8 +76,8 @@ export function BeforeAfterSliderDemo(): React.ReactElement {
             </p>
           </div>
           <BeforeAfterSlider
-            beforeImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=900&fit=crop"
-            afterImage="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=900&fit=crop"
+            beforeVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            afterVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
             beforeAlt="Old dashboard"
             afterAlt="New dashboard"
             beforeLabel="Legacy"
@@ -99,8 +99,8 @@ export function BeforeAfterSliderDemo(): React.ReactElement {
             </p>
           </div>
           <BeforeAfterSlider
-            beforeImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=675&fit=crop"
-            afterImage="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=675&fit=crop"
+            beforeVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            afterVideo="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
             beforeAlt="Before state"
             afterAlt="After state"
             aspectRatio="16 / 9"
@@ -116,46 +116,37 @@ export function BeforeAfterSliderDemo(): React.ReactElement {
 // ─────────────────────────────────────────────
 
 /**
- * HOW TO USE WITH YOUR OWN IMAGES
+ * HOW TO USE WITH YOUR OWN VIDEOS
  *
  * Option 1: Local Images (if using webdev_add_feature with S3)
  * ─────────────────────────────────────────────────────────────
- * 1. Upload your images using: manus-upload-file --webdev before.png after.png
+ * 1. Upload your videos using: manus-upload-file --webdev before.mp4 after.mp4
  * 2. Use the returned URLs directly:
  *
  *    <BeforeAfterSlider
- *      beforeImage="/manus-storage/before_abc123.png"
- *      afterImage="/manus-storage/after_def456.png"
+ *      beforeVideo="/manus-storage/before_abc123.mp4"
+ *      afterVideo="/manus-storage/after_def456.mp4"
  *      beforeAlt="Old design"
  *      afterAlt="New design"
  *      beforeLabel="Before"
  *      afterLabel="After"
  *    />
  *
- * Option 2: External URLs (Unsplash, Imgur, etc.)
+ * Option 2: External video URLs
  * ─────────────────────────────────────────────────────────────
  * <BeforeAfterSlider
- *   beforeImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200"
- *   afterImage="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200"
+ *   beforeVideo="https://example.com/before.mp4"
+ *   afterVideo="https://example.com/after.mp4"
  *   beforeAlt="Before"
  *   afterAlt="After"
  * />
  *
- * Option 3: Data URLs (for testing)
+ * Video Requirements
  * ─────────────────────────────────────────────────────────────
  * <BeforeAfterSlider
- *   beforeImage="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'%3E%3Crect fill='%23333' width='1200' height='675'/%3E%3C/svg%3E"
- *   afterImage="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'%3E%3Crect fill='%23666' width='1200' height='675'/%3E%3C/svg%3E"
- *   beforeAlt="Before"
- *   afterAlt="After"
- * />
- *
- * Image Requirements
- * ─────────────────────────────────────────────────────────────
- * - Both images should be the SAME dimensions (width × height)
- * - Recommended: 1200×675px for 16:9, 1200×900px for 4:3, 400×400px for 1:1
- * - Format: PNG, JPG, WebP (any format supported by <img>)
- * - Optimize for web (compress before uploading)
+ * - Both videos should use the same dimensions and timing.
+ * - Use MP4 or another format supported by the target browser.
+ * - The videos are muted and looped so autoplay works reliably.
  *
  * Aspect Ratios
  * ─────────────────────────────────────────────────────────────
