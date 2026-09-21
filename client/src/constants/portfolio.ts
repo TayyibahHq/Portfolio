@@ -14,10 +14,7 @@ import type {
   SocialLink,
   BeforeAfterShowcase,
 } from "@/types";
-import vvOldVideo from "../../../img/old VV website.mp4";
-import vvNewVideo from "../../../img/Village Values Website runthrough.mp4";
-import vrOldVideo from "../../../img/old VR website.mp4";
-import vrNewVideo from "../../../img/Current VR website runalong.mp4";
+
 
 // ─────────────────────────────────────────────
 // Navigation
@@ -169,8 +166,8 @@ export const SHOWCASES: BeforeAfterShowcase[] = [
     id:           "showcase-1",
     title:        "Client Childcare Website Redesign",
     description:  "Improved conversion rate by 35% through better CTA placement and visual hierarchy.",
-    beforeVideo:  vvOldVideo,
-    afterVideo:   vvNewVideo,
+    beforeVideo:  "https://res.cloudinary.com/serlatpy/video/upload/v1789989025/old_VV_website_ptxfje.mp4",
+    afterVideo:   "https://res.cloudinary.com/serlatpy/video/upload/v1789989664/new_VV_website_ximr1k.mp4",
     beforeAlt:    "Old homepage design",
     afterAlt:     "New homepage design",
     beforeLabel:  "Before",
@@ -181,8 +178,8 @@ export const SHOWCASES: BeforeAfterShowcase[] = [
     id:           "showcase-2",
     title:        "Client Non-Profit Website Redesign",
     description:  "Reduced cognitive load with improved data visualization and streamlined layout.",
-    beforeVideo:  vrOldVideo,
-    afterVideo:   vrNewVideo,
+    beforeVideo:  "https://res.cloudinary.com/serlatpy/video/upload/v1789989033/old_VR_website_xk7eti.mp4",
+    afterVideo:   "https://res.cloudinary.com/serlatpy/video/upload/v1789989886/new_VR_website_jrb9qw.mp4",
     beforeAlt:    "Old dashboard",
     afterAlt:     "New dashboard",
     beforeLabel:  "Legacy",
