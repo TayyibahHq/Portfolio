@@ -208,6 +208,7 @@ export function BeforeAfterSlider({
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
       onPointerLeave={handlePointerUp}
       onClick={handleContainerClick}
       role="region"
@@ -216,7 +217,7 @@ export function BeforeAfterSlider({
       aria-valuemin={0}
       aria-valuemax={100}
       className={cn(
-        "group relative w-full cursor-col-resize select-none overflow-hidden rounded-2xl",
+        "group relative w-full cursor-col-resize touch-none select-none overflow-hidden rounded-2xl",
         "border border-white/[0.07] bg-black",
         aspectRatioClass,
         containerClassName,

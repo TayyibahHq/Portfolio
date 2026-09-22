@@ -186,6 +186,18 @@ export const SHOWCASES: BeforeAfterShowcase[] = [
     afterLabel:   "Modern",
     aspectRatio:  "16 / 9",
   },
+  {
+    id:           "showcase-3",
+    title:        "Client Notary Website Redesign",
+    description:  "Reduced cognitive load with improved data visualization and streamlined layout.",
+    beforeVideo:  "https://res.cloudinary.com/serlatpy/video/upload/v1790083723/Old_SS_website_vstn53.mp4",
+    afterVideo:   "https://res.cloudinary.com/serlatpy/video/upload/v1790083732/new_SS_website_lidrkz.mp4",
+    beforeAlt:    "Old dashboard",
+    afterAlt:     "New dashboard",
+    beforeLabel:  "Legacy",
+    afterLabel:   "Modern",
+    aspectRatio:  "16 / 9",
+  },
 ];
 
 // ─────────────────────────────────────────────
@@ -196,7 +208,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     id:           "exp-1",
     company:      "Village Rising",
-    role:         "Software Development Intern",
+    role:         "Full Stack Engineering Intern",
     startDate:    "2026-01",
     endDate:      "Present",
     highlights: [
@@ -209,7 +221,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     id:           "exp-2",
     company:      "Village Values",
-    role:         "Front-End Engineer II",
+    role:         "Software Development Intern",
     startDate:    "2025-10",
     endDate:      "Present",
     highlights: [
